@@ -1,0 +1,15 @@
+artifact_uri: file:///home/adduser/projects/Mlops-platzi/tracking/experiments_ml/506952113496395628/eb4d3fec32c64847942a37347fb19ef2/artifacts
+end_time: 1768393994709
+entry_point_name: ''
+experiment_id: '506952113496395628'
+lifecycle_stage: active
+run_id: eb4d3fec32c64847942a37347fb19ef2
+run_name: example_1
+run_uuid: eb4d3fec32c64847942a37347fb19ef2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1768393992617
+status: 3
+tags: []
+user_id: adduser
