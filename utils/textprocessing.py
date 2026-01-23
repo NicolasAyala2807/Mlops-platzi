@@ -28,7 +28,7 @@ class TextProcessing:
         logging.basicConfig(level=logging.INFO)
         self.logger = logging.getLogger(__name__)
 
-        nltk.download("averaged_perceptron_tagger")
+        # nltk.download("averaged_perceptron_tagger")
         self.lenguage = language
         self.stop_words = set(stopwords.words(self.language))
         self.stemmer = SnowballStemmer(self.language)

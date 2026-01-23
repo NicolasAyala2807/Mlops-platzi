@@ -28,7 +28,7 @@ class TextProcessing:
         logging.basicConfig(level=logging.INFO)
         self.logger = logging.getLogger(__name__)
 
-        nltk.download("averaged_perceptron_tagger")
+        # nltk.download("averaged_perceptron_tagger")
         self.language = language
         self.stop_words = set(stopwords.words(self.language))
         self.stemmer = SnowballStemmer(self.language)
@@ -120,8 +120,8 @@ class TextProcessing:
     def run(self, file_name: str, version: int):
         """Runs the entire text processing pipeline."""
         name_data_input = f"{file_name}"
-        PATH_DATA_RAW = "/Users/mdurango/Proyect/Mlops-platzi/orchestration/data/data_raw"
-        PATH_DATA_PROCESSED = "/Users/mdurango/Proyect/Mlops-platzi/orchestration/data/data_processed"
+        PATH_DATA_RAW = "/home/adduser/projects/Mlops-platzi/orchestration/data/data_raw"
+        PATH_DATA_PROCESSED = "/home/adduser/projects/Mlops-platzi/orchestration/data/data_processed"
         # reading JSON data
         data_tickets = self.read_json(
             path=PATH_DATA_RAW, file_name=f"{name_data_input}.json"

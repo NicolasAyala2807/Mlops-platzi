@@ -25,8 +25,8 @@ from text_processing import TextProcessing
 warnings.filterwarnings("ignore")
 
 
-@task(retries=3, retry_delay_seconds=2,
-      name="Text processing task", 
+@task(retries=1, retry_delay_seconds=2,
+      name=" Text processing task", 
       tags=["pos_tag"])
 def text_processing_task(language: str, file_name: str, version: int):
     """This task is used to run the text processing process
@@ -39,7 +39,7 @@ def text_processing_task(language: str, file_name: str, version: int):
     text_processing_processor = TextProcessing(language=language)
     text_processing_processor.run(file_name=file_name, version=version)
 
-@task(retries=3, retry_delay_seconds=2,
+@task(retries=1, retry_delay_seconds=2,
       name="Feature extraction task", 
       tags=["feature_extraction", "topic_modeling"])
 def feature_extraction_task(data_path_processed: str, 
@@ -54,7 +54,7 @@ def feature_extraction_task(data_path_processed: str,
     feature_extraction_processor.run(data_path_processed=data_path_processed, 
                                      data_version = VERSION)
 
-@task(retries=3, retry_delay_seconds=2,
+@task(retries=1, retry_delay_seconds=2,
       name="Data transformation task", 
       tags=["data_transform", "split_data", "train_test_split"])    
 def data_transformation_task_and_split(data_input_path: str, file_name: str, version: int):
@@ -84,7 +84,7 @@ def data_transformation_task_and_split(data_input_path: str, file_name: str, ver
     return X_train, X_test, y_train, y_test, count_vectorizer
 
 @task(
-    retries=3,
+    retries=1,
     retry_delay_seconds=2,
     name="Train best model",
     tags=["train", "best_model", "LogisticRegressionClassifier"],
@@ -98,6 +98,10 @@ def training_best_model(
     model_name: str,
 ):
     with mlflow.start_run(run_name=model_name):
+
+        mlflow.set_tracking_uri("sqlite:///mlflow.db")
+        mlflow.set_experiment("text_classification1")
+
         mlflow.set_tag("developer", DEVELOPER_NAME)
         mlflow.set_tag("model_name", MODEL_NAME)
         mlflow.log_params(params)
