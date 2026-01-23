@@ -25,3 +25,9 @@ Si enfrentas problemas de cómputo, no olvides que puedes usar los recursos de l
 Si en algún momento tienes dudas o necesitas ayuda, ¡no dudes en escribirme! Estoy aquí para ayudarte y recuerda que tus compañeros también pueden ser una gran fuente de conocimiento y apoyo. ¡Disfruta el curso y mucha suerte en tu aprendizaje!
 
 - Con todo cariño, Profe Cami 💙
+
+
+**NLTK resources required:**
+- punkt
+- stopwords
+- averaged_perceptron_tagger
